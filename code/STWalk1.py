@@ -107,7 +107,7 @@ def STWalk1(input_direc, output_file, number_restart, walk_length, representatio
 
     # time-step is decremented by 1, because, time steps are from 0 to time_step-1=total time_step length
     print("Generating representation...")
-    model = Word2Vec(walks, size=representation_size, window=vocab_window_size, min_count=0, workers=workers)
+    model = Word2Vec(walks, vector_size=representation_size, window=vocab_window_size, min_count=0, workers=workers)
 
     model.wv.save_word2vec_format(output_file)
     print("Representation File saved: " + output_file)

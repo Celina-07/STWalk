@@ -160,7 +160,7 @@ def combineSpaceaTimeWalk(input_direc, output_file, number_restart, walk_length_
 
     # time-step is decremented by 1, because, time steps are from 0 to time_step-1=total time_step length
     print("Generating representation from spaceWalk...")
-    model = Word2Vec(spacewalks, size=representation_size, window=vocab_window_size, min_count=0, workers=workers)
+    model = Word2Vec(spacewalks, vector_size=representation_size, window=vocab_window_size, min_count=0, workers=workers)
     space_output_file = output_file+"/space_window_"+str(time_step)+".stwalktwo"
     model.wv.save_word2vec_format(space_output_file)
     print("Space Representation File saved: " + space_output_file)
@@ -175,7 +175,7 @@ def combineSpaceaTimeWalk(input_direc, output_file, number_restart, walk_length_
 
     # time-step is decremented by 1, because, time steps are from 0 to time_step-1=total time_step length
     print("Generating representation from timeWalk")
-    model = Word2Vec(timewalks, size=representation_size, window=vocab_window_size, min_count=0, workers=workers)
+    model = Word2Vec(timewalks, vector_size=representation_size, window=vocab_window_size, min_count=0, workers=workers)
     time_output_file = output_file+"/time_window_"+str(time_step)+".stwalktwo"
     model.wv.save_word2vec_format(time_output_file)
     print("Time Representation File saved: " + time_output_file)
